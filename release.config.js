@@ -15,7 +15,8 @@ export default {
             "@semantic-release/git",
             {
                 assets: ["package.json", "package-lock.json"],
-                message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+                /** Don't use [skip ci] because branch-syncer workflow would no longer work. */
+                message: "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}",
             },
         ],
     ],
