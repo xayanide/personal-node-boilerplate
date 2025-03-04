@@ -1,7 +1,6 @@
 {
   "name": "personal-node-boilerplate",
   "version": "1.0.0",
-  "private": "true",
   "description": "description",
   "keywords": [
     "keyword"
@@ -11,7 +10,8 @@
     "url": "https://github.com/xayanide/personal-node-boilerplate/issues"
   },
   "repository": {
-    "url": "https://github.com/xayanide/personal-node-boilerplate"
+    "type": "git",
+    "url": "git+https://github.com/xayanide/personal-node-boilerplate.git"
   },
   "funding": [
     {

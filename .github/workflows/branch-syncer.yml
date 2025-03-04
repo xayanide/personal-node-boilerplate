@@ -1,8 +1,7 @@
 name: BranchSyncer
 on:
   workflow_run:
-    workflows:
-      - Releaser
+    workflows: [Releaser]
     types:
       - completed
     branches:
@@ -13,7 +12,7 @@ permissions:
 
 jobs:
   sync-branch:
-    name: Sync branch 'dev' with 'main'
+    name: Sync branch
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -22,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.SRGH_TOKEN }}
-      - name: Sync branch 'dev' with 'main'
+      - name: Sync branch
         run: |
           git fetch origin
           git checkout dev
