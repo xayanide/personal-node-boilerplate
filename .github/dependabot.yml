@@ -6,7 +6,7 @@ version: 2
 updates:
   # Manage npm dependencies (package.json, package-lock.json)
   - package-ecosystem: npm
-    directory: /
+    directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
@@ -17,7 +17,7 @@ updates:
       - approved
   # Manage GitHub Actions dependencies (used in .github/workflows/*.yml)
   - package-ecosystem: github-actions
-    directory: /
+    directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
