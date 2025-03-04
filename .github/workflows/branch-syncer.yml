@@ -1,7 +1,8 @@
 name: BranchSyncer
 on:
   workflow_run:
-    workflows: [Releaser]
+    workflows:
+      - Releaser
     types:
       - completed
     branches:
