@@ -24,8 +24,8 @@ jobs:
           token: ${{ secrets.SRGH_TOKEN }}
       - name: Sync branch
         run: |
-          git checkout dev
           git fetch origin
+          git checkout dev
           git pull --rebase
           git merge origin/main
           git push origin dev
