@@ -30,11 +30,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Fetch all branches
-        run: git fetch --all
+      - name: Fetch origin for source and target
+        run: git fetch origin ${{ env.SOURCE_BRANCH }} ${{ env.TARGET_BRANCH }}
       - name: Checkout target branch
-        run: git checkout ${{ env.TARGET_BRANCH }}
-      - name: Rebase source branch into target
-        run: git rebase origin/${{ env.SOURCE_BRANCH }}
+        run: |
+          git checkout ${{ env.TARGET_BRANCH }}
+          git pull --rebase
+      - name: Merge source branch into target
+        run: git merge origin/${{ env.SOURCE_BRANCH }}
       - name: Push source branch changes into target
         run: git push origin ${{ env.TARGET_BRANCH }} --force-with-lease
