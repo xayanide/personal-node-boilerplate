@@ -157,7 +157,6 @@
   "exclude": [
     "**/*.spec.ts",
     "**/*.test.ts",
-    "test/**/*",
     "dist"
   ]
 }
