@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+env:
+  SOURCE_BRANCH: main
+  TARGET_BRANCH: dev
+
 jobs:
   sync-branch:
     name: Sync branch
@@ -21,11 +25,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.SRGH_TOKEN }}
-      - name: Sync branch
+      - name: Configure git user
         run: |
-          git fetch origin
-          git checkout dev
-          git pull --rebase
-          git merge origin/main
-          git push origin dev
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Fetch all branches
+        run: git fetch --all
+      - name: Checkout target branch
+        run: git checkout ${{ env.TARGET_BRANCH }}
+      - name: Merge source branch into target
+        run: git merge origin/${{ env.SOURCE_BRANCH }} --no-edit
+      - name: Push source branch changes into target
+        run: git push origin ${{ env.TARGET_BRANCH }}
