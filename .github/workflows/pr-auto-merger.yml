@@ -29,11 +29,7 @@ jobs:
   merge-pr:
     name: Enable auto-merge if PR is ready
     runs-on: ubuntu-latest
-    if: |
-      github.event_name == 'pull_request_review' && github.event.review.state == 'approved' ||
-      github.event_name == 'pull_request_target' &&
-      github.event.pull_request.merged == false &&
-      github.event.pull_request.state == 'open'
+    if: github.event_name == 'pull_request_review' && github.event.review.state == 'approved'
     steps:
       - name: Enable auto-merge if PR is ready
         uses: reitermarkus/automerge@v2
