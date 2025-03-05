@@ -1,9 +1,6 @@
 # https://github.com/reitermarkus/automerge?tab=readme-ov-file#example-workflow
 name: PRAutoMerger
 on:
-  pull_request_review:
-    types:
-      - submitted
   # Try enabling auto-merge for a pull request when a draft is marked as
   # “ready for review”, when a required label is applied or when a
   # “do not merge” label is removed, or when a pull request is updated in
@@ -32,7 +29,6 @@ jobs:
   merge-pr:
     name: Enable auto-merge if PR is ready
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request_review' && github.event.review.state == 'approved'
     steps:
       - name: Enable auto-merge if PR is ready
         uses: reitermarkus/automerge@v2
