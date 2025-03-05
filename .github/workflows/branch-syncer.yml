@@ -34,7 +34,7 @@ jobs:
         run: git fetch --all
       - name: Checkout target branch
         run: git checkout ${{ env.TARGET_BRANCH }}
-      - name: Merge source branch into target
-        run: git merge origin/${{ env.SOURCE_BRANCH }} --no-edit
+      - name: Rebase source branch into target
+        run: git rebase origin/${{ env.SOURCE_BRANCH }}
       - name: Push source branch changes into target
-        run: git push origin ${{ env.TARGET_BRANCH }}
+        run: git push origin ${{ env.TARGET_BRANCH }} --force-with-lease
