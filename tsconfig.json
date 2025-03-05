@@ -1,5 +1,5 @@
 {
-  // "$schema": "https://json.schemastore.org/tsconfig",
+  "$schema": "https://json.schemastore.org/tsconfig",
   /* 2-28-2025 11:45 PM UTC+8 Xayanide initially had this generated from command tsc --init. Default options preset are prefixed with DEFAULT:*/
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
