@@ -14,7 +14,6 @@ updates:
     versioning-strategy: increase
     labels:
       - enhancement
-      - approved
   # Manage GitHub Actions dependencies (used in .github/workflows/*.yml)
   - package-ecosystem: github-actions
     directory: "/"
@@ -24,4 +23,3 @@ updates:
     target-branch: dev
     labels:
       - enhancement
-      - approved
