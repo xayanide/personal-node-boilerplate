@@ -60,7 +60,7 @@ const tseslintStrictConfig = tseslintStrictConfigArr[2];
  */
 export default [
     /** Global config object that applies to both JavaScript and TypeScript files and can be overriden */
-    { languageOptions: { globals: { ...globals.node, ...globals.es2025, ...globals.browser } } },
+    { languageOptions: { globals: { ...globals.node, ...globals.es2025, ...globals.browser, ...globals.jest } } },
     /** Global config object with rules that applies to both JavaScript and TypeScript files and can be overriden */
     {
         plugins: { "@stylistic": stylisticEslintPlugin },
