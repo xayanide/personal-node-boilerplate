@@ -87,6 +87,8 @@ export default [
         rules: {
             ...tseslintRecommendedConfig.rules,
             ...tseslintStrictConfig.rules,
+            "no-use-before-define": "off",
+            "@typescript-eslint/no-use-before-define": "error",
         },
     },
     /** Global config object with rules that overrides specific rules for Prettier to work well with ESLint */
