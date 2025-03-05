@@ -34,8 +34,8 @@ jobs:
         run: git fetch origin ${{ env.SOURCE_BRANCH }} ${{ env.TARGET_BRANCH }}
       - name: Checkout target branch
         run: git checkout ${{ env.TARGET_BRANCH }}
-      - name: Pull latest changes with rebase
-        run: git pull --rebase
+      - name: Refetch origin for target branch only
+        run: git fetch origin ${{ env.TARGET_BRANCH }}
       - name: Merge source branch into target
         run: git merge origin/${{ env.SOURCE_BRANCH }}
       - name: Push target branch changes into target
