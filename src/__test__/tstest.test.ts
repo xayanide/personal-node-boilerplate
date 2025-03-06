@@ -1,5 +1,3 @@
-import { jest } from "@jest/globals";
-
 describe("Given a TypeScript ESM test environment", function () {
     describe("When encountering global variables jest and import.meta", function () {
         test("Then import.meta.jest and import.meta.url are available", function () {

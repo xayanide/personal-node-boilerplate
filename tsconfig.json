@@ -18,6 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "noUncheckedSideEffectImports": true,
+    "noImplicitAny": true,
     "noEmitOnError": true,
     "verbatimModuleSyntax": true,
     /* Strictest overrides */
