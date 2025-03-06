@@ -7,7 +7,7 @@ test.ts files are treated as ESM when transform is handled by ts-jest and its us
 
 jest as a global variable will not be available with ESM, so you gotta use import.meta.jest to access it
 until they have proper support with ESM. You can also just import { jest } from "@jest/globals" as well,
-but that can trigger a no-shadow warning for ESLint, so that rule is disabled for test files.
+but that can trigger a no-shadow error for ESLint, so that rule is disabled for test files.
 */
 
 const jsWithTsEsmPreset = createJsWithTsEsmPreset({ tsconfig: "./tsconfig.json" });
