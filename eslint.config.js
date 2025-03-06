@@ -60,7 +60,7 @@ const tseslintStrictConfig = tseslintStrictConfigArr[2];
  */
 export default [
     /** Global config object that applies to both JavaScript and TypeScript files and can be overriden */
-    { languageOptions: { globals: { ...globals.node, ...globals.es2025, ...globals.browser, ...globals.jest } } },
+    { languageOptions: { globals: { ...globals.node, ...globals.es2025, ...globals.browser } } },
     /** Global config object with rules that applies to both JavaScript and TypeScript files and can be overriden */
     {
         plugins: { "@stylistic": stylisticEslintPlugin },
@@ -89,6 +89,19 @@ export default [
             ...tseslintStrictConfig.rules,
             "no-use-before-define": "off",
             "@typescript-eslint/no-use-before-define": "error",
+        },
+    },
+    /** Global config object that only applies to Test files and can be overriden */
+    {
+        name: "personal/test",
+        languageOptions: {
+            globals: {
+                ...globals.jest,
+            },
+        },
+        files: ["**/*.spec.*", "**/*.test.*"],
+        rules: {
+            "no-shadow": "off",
         },
     },
     /** Global config object with rules that overrides specific rules for Prettier to work well with ESLint */
