@@ -1,3 +1,4 @@
+/** https://github.com/jestjs/jest/issues/9430 */
 /**
 Jest uses CommonJS by default but we want ESM.
 test.js are files treated as ESM when transform is {} and "type": "module"
