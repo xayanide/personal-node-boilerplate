@@ -17,7 +17,7 @@ env:
 
 jobs:
   sync-branch:
-    name: Sync branch
+    name: Sync branch source into target
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -30,13 +30,11 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Fetch origin for source and target branches
-        run: git fetch origin ${{ env.SOURCE_BRANCH }} ${{ env.TARGET_BRANCH }}
-      - name: Checkout target branch
-        run: git checkout ${{ env.TARGET_BRANCH }}
-      - name: Refetch origin for target branch only
-        run: git fetch origin ${{ env.TARGET_BRANCH }}
-      - name: Merge source branch into target
-        run: git merge origin/${{ env.SOURCE_BRANCH }}
-      - name: Push target branch changes into target
-        run: git push origin ${{ env.TARGET_BRANCH }} --force-with-lease
+      - name: Sync branch source into target
+        run: |
+          set -e
+          git fetch origin ${{ env.SOURCE_BRANCH }} ${{ env.TARGET_BRANCH }}
+          git checkout ${{ env.TARGET_BRANCH }}
+          git fetch origin ${{ env.TARGET_BRANCH }}
+          git merge origin/${{ env.SOURCE_BRANCH }} || (echo "Merge conflict detected" && exit 1)
+          git push origin ${{ env.TARGET_BRANCH }}
