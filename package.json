@@ -48,7 +48,7 @@
   },
   "main": "./dist/index.js",
   "files": [
-    "./dist"
+    "dist"
   ],
   "scripts": {
     "build": "npm run clean && npm run build:base",
