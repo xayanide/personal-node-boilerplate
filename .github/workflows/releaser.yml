@@ -39,6 +39,8 @@ jobs:
         run: npm ci
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
+      - name: Build
+        run: npm run build
       - name: Bump version and release if needed
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

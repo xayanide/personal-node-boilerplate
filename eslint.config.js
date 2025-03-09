@@ -95,9 +95,7 @@ export default [
     {
         name: "personal/test",
         languageOptions: {
-            globals: {
-                ...globals.jest,
-            },
+            globals: {},
         },
         files: ["**/*.spec.*", "**/*.test.*"],
         rules: {
