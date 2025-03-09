@@ -64,7 +64,7 @@
     "prepare": "echo prepare",
     "start": "node dist/index.js",
     "test": "npm run test:base",
-    "test:base": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" tester",
+    "test:base": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" test",
     "test:coverage": "npm run test:base -- --coverage",
     "test:watch": "npm run test:base -- --watch"
   },
