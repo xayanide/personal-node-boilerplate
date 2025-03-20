@@ -31,15 +31,24 @@ const eslintConfigPreferences = {
     },
     codeQuality: {
         rules: {
-            "func-style": ["error", "declaration", { overrides: { namedExports: "ignore" } }],
+            "func-style": ["error", "declaration", { overrides: { namedExports: "declaration" } }],
             "no-console": "off",
             "radix": ["error", "always"],
-            "no-shadow": ["error", { builtinGlobals: true, hoist: "all", allow: [], ignoreOnInitialization: true }],
+            "default-case": "error",
+            "no-shadow": ["error", { builtinGlobals: true, ignoreOnInitialization: true }],
             "no-negated-condition": "error",
             "no-unneeded-ternary": ["error", { defaultAssignment: true }],
             "no-nested-ternary": "error",
+            "no-restricted-syntax": [
+                "error",
+                {
+                    selector: "CallExpression > ArrowFunctionExpression",
+                    message: "Use function expressions instead of arrow functions as callbacks.",
+                },
+            ],
             "no-var": "error",
-            "no-use-before-define": ["error", { functions: false, classes: true, variables: true, allowNamedExports: false }],
+            "no-use-before-define": ["error", { functions: false }],
+            "prefer-arrow-callback": "off",
             "prefer-const": ["error", { destructuring: "any", ignoreReadBeforeAssign: false }],
             "require-await": "error",
             "strict": ["error", "global"],
