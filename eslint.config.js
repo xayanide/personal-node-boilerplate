@@ -31,7 +31,7 @@ const eslintConfigPreferences = {
     },
     codeQuality: {
         rules: {
-            "func-style": ["error", "declaration", { overrides: { namedExports: "declaration" } }],
+            "func-style": ["error", "declaration"],
             "no-console": "off",
             "radix": ["error", "always"],
             "default-case": "error",

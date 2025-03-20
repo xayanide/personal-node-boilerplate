@@ -1,13 +1,10 @@
-function greet(personName, callback) {
-    if (typeof personName !== "string" || personName.trim() === "") {
-        throw new Error("Invalid name provided");
+export function greet(personName) {
+    if (typeof personName !== "string") {
+        throw new Error("Invalid name provided. Must be a string.");
     }
-    callback();
-    return `Hello, ${personName}!`;
+    const trimmedPersonName = personName.trim();
+    if (trimmedPersonName === "") {
+        throw new Error("Invalid name provided. Must be a non-empty string.");
+    }
+    return `Hello, ${trimmedPersonName}!`;
 }
-
-greet("", function () {
-    return this;
-});
-
-export { greet };
