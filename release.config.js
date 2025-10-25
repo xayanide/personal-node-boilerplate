@@ -5,13 +5,13 @@ const DOTS = /\./;
 function onRelease() {
     const timestamp = new Date().toISOString().replace(COLONS_HYPHENS, "").replace(DOTS, "Z");
     const hash = nodeChildProcess.execSync("git rev-parse --short HEAD").toString().trim();
-    return `{version}+${timestamp}.githash.${hash}`;
+    return `+${timestamp}.githash.${hash}`;
 }
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
 export default {
-    tagFormat: onRelease,
+    tagFormat: "${version}" + onRelease(),
     branches: ["main", "dev"],
     plugins: [
         ["@semantic-release/commit-analyzer"],
