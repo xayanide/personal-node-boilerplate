@@ -9,17 +9,14 @@ export default {
         ["@semantic-release/commit-analyzer"],
         ["@semantic-release/release-notes-generator"],
         [
-            // custom plugin that mutates version
             {
-                verifyRelease: function (pluginConfig, context) {
+                prepare: (_, context) => {
                     const { nextRelease } = context;
                     const timestamp = new Date().toISOString().replace(/[-:.TZ]/g, "");
                     const gitHash = execSync("git rev-parse --short HEAD").toString().trim();
                     const customVersion = `${nextRelease.version}+${timestamp}.githash.${gitHash}`;
                     context.nextRelease.version = customVersion;
-
-                    // also reflect it in the release notes (optional)
-                    context.nextRelease.notes = `**Build:** ${customVersion}\n\n${context.nextRelease.notes}`;
+                    context.logger.log(`Using version: ${nextRelease.version}`);
                 },
             },
         ],
