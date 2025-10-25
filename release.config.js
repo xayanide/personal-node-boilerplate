@@ -11,7 +11,6 @@ export default {
         ["./plugins/semantic-release-build-metadata", { npmPublish: false }],
         // { npmPublish } is disabled by default only if the "private" property
         // in package.json is true.
-        ["@semantic-release/npm", { npmPublish: false }],
         ["@semantic-release/github"],
         [
             "@semantic-release/git",
