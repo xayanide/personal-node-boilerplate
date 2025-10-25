@@ -6,7 +6,7 @@ export default {
     branches: ["main", "dev"],
     plugins: [
         ["@semantic-release/commit-analyzer"],
-        "./plugins/semantic-release-build-metadata",
+        ["./plugins/semantic-release-build-metadata"],
 
         ["@semantic-release/release-notes-generator"],
         // { npmPublish } is disabled by default only if the "private" property
