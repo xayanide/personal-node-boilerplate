@@ -10,7 +10,7 @@ function a() {
  * @type {import('semantic-release').GlobalConfig}
  */
 export default {
-    tagFormat: "${version}" + a(),
+    tagFormat: "${version}",
     branches: ["main", "dev"],
     plugins: [
         ["@semantic-release/commit-analyzer"],
