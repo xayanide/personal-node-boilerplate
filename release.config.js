@@ -1,8 +1,17 @@
+import * as nodeChildProcess from "node:child_process";
+const COLONS_HYPHENS = /[:-]/g;
+const DOTS = /\./;
+
+function onRelease({ nextRelease }) {
+    const timestamp = new Date().toISOString().replace(COLONS_HYPHENS, "").replace(DOTS, "Z");
+    const hash = nodeChildProcess.execSync("git rev-parse --short HEAD").toString().trim();
+    return `${nextRelease.version}+${timestamp}.githash.${hash}`;
+}
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
 export default {
-    tagFormat: "${version}",
+    tagFormat: onRelease,
     branches: ["main", "dev"],
     plugins: [
         ["@semantic-release/commit-analyzer"],
