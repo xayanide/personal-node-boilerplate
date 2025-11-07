@@ -11,8 +11,5 @@ export function greet(personName) {
     }
     return `Hello, ${trimmedPersonName}!`;
 }
-<<<<<<< HEAD
 // example fix
-=======
->>>>>>> 2c5e2ba (feat: example feature)
 // feature here
