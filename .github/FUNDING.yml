@@ -1,4 +1,4 @@
-# 3-3-2025 UTC+8 https://github.com/org/repo/new/mainbranch?repository_funding=1
+# 2025-3-3 https://github.com/org/repo/new/mainbranch?repository_funding=1
 # These are supported funding model platforms
 
 # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
@@ -7,7 +7,7 @@ github:
 # Replace with a single Patreon username
 patreon: xayanide
 # Replace with a single Open Collective username
-open_collective:
+# open_collective:
 # Replace with a single Ko-fi username
 ko_fi: xayanide
 # Replace with a single Tidelift platform-name/package-name e.g., npm/babel

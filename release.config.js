@@ -1,11 +1,3 @@
-import { execSync } from "node:child_process";
-
-function a() {
-    const timestamp = new Date().toISOString().replace(/[-:.TZ]/g, "");
-    const gitHash = execSync("git rev-parse --short HEAD").toString().trim();
-    return `+${timestamp}.githash.${gitHash}`;
-}
-
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
