@@ -2,7 +2,7 @@ import globals from "globals";
 import eslintPluginJs from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import stylisticEslintPlugin from "@stylistic/eslint-plugin";
-import tseslint from "typescript-eslint";
+import tsEslint from "typescript-eslint";
 
 const stylisticConfigPreferences = {
     formatting: {
@@ -57,10 +57,10 @@ const eslintConfigPreferences = {
     },
 };
 
-const tseslintStrictConfigArr = tseslint.configs.strict;
-const tseslintBaseConfig = tseslintStrictConfigArr[0];
-const tseslintRecommendedConfig = tseslintStrictConfigArr[1];
-const tseslintStrictConfig = tseslintStrictConfigArr[2];
+const tsEslintStrictConfigArr = tsEslint.configs.strict;
+const tsEslintBaseConfig = tsEslintStrictConfigArr[0];
+const tsEslintRecommendedConfig = tsEslintStrictConfigArr[1];
+const tsEslintStrictConfig = tsEslintStrictConfigArr[2];
 
 /**
  * @see https://eslint.org/docs/latest/rules
@@ -89,13 +89,13 @@ export default [
     },
     /** Global config object that only applies to TypeScript files and can be overriden */
     {
-        ...tseslintBaseConfig,
+        ...tsEslintBaseConfig,
         // Override the name from the base config
         name: "personal/ts/strict",
-        files: tseslintRecommendedConfig.files,
+        files: tsEslintRecommendedConfig.files,
         rules: {
-            ...tseslintRecommendedConfig.rules,
-            ...tseslintStrictConfig.rules,
+            ...tsEslintRecommendedConfig.rules,
+            ...tsEslintStrictConfig.rules,
             "no-use-before-define": "off",
             "@typescript-eslint/no-use-before-define": "error",
         },
